@@ -1,0 +1,202 @@
+
+/* Install CatalogService database tables */
+
+CREATE database IF NOT EXISTS catalogservice DEFAULT charset=utf8;
+
+USE catalogservice;
+
+CREATE TABLE IF NOT EXISTS brands (
+	slug VARCHAR(50) NOT NULL,
+	name VARCHAR(50),
+	seo_title VARCHAR(255),
+	description VARCHAR(500),
+	long_description VARCHAR(5000),
+	image VARCHAR(255),
+	PRIMARY KEY(slug),
+	UNIQUE (name)
+	)
+	DEFAULT CHARSET=utf8;
+  
+CREATE TABLE IF NOT EXISTS suppliers (
+	id INT(6) NOT NULL AUTO_INCREMENT,
+	name VARCHAR(255),
+	description VARCHAR(500),
+	PRIMARY KEY (id)
+	)
+	DEFAULT CHARSET=utf8;
+  
+CREATE TABLE IF NOT EXISTS product_attributes (
+	slug VARCHAR(50) NOT NULL,
+	name VARCHAR(50),
+	description VARCHAR(255), 
+	type VARCHAR(50) DEFAULT 'string', 
+	direction VARCHAR(50) DEFAULT NULL,
+	unit VARCHAR(50),
+	filter TINYINT(1) DEFAULT 1,
+	canonical TINYINT(1) DEFAULT 1,
+	PRIMARY KEY(slug)
+	)
+	DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS product_images (
+	file_name VARCHAR(255) NOT NULL,
+	alt_text VARCHAR(255),
+	PRIMARY KEY(file_name)
+	)
+	DEFAULT CHARSET=utf8;
+  
+CREATE TABLE IF NOT EXISTS products ( 
+	pid INT(11) NOT NULL AUTO_INCREMENT,
+	slug VARCHAR(50) NOT NULL,
+	enabled TINYINT(1) DEFAULT 0,
+	sku VARCHAR(50),
+	ean VARCHAR(255),
+	type VARCHAR(50) DEFAULT 'single',
+	name VARCHAR(255),
+	price DECIMAL(11,2),
+	seo_title VARCHAR(255),
+	description VARCHAR(500),
+	long_description VARCHAR(2000),
+	main_image VARCHAR(255),
+	specs_json VARCHAR(5000),
+	brand VARCHAR(50),
+	supplier_sku VARCHAR(50),
+	supplier INT(11),
+	quantity_in_stock INT(6) DEFAULT 0,
+	created DATETIME,
+	updated TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  available_from DATETIME,
+	available_until DATETIME,
+	canonical_url VARCHAR(255),
+	breadcrumb_json VARCHAR(1000),
+	CONSTRAINT FOREIGN KEY(main_image) REFERENCES product_images(file_name) ON UPDATE RESTRICT ON DELETE RESTRICT,
+	CONSTRAINT FOREIGN KEY(brand) REFERENCES brands(slug) ON UPDATE CASCADE ON DELETE SET NULL,
+	CONSTRAINT FOREIGN KEY(supplier) REFERENCES suppliers(id) ON UPDATE SET NULL ON DELETE SET NULL,
+	PRIMARY KEY (pid),
+	UNIQUE(slug),
+	UNIQUE(name),
+	UNIQUE(sku),
+	UNIQUE(ean)
+	)
+	DEFAULT CHARSET=utf8;
+  
+CREATE TABLE IF NOT EXISTS product_to_images (
+	pid INT(11),
+	file_name VARCHAR(255) NOT NULL,
+	sort_order INT(11) DEFAULT 0,
+	CONSTRAINT FOREIGN KEY(pid) REFERENCES products(pid) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY(file_name) REFERENCES product_images(file_name) ON UPDATE CASCADE ON DELETE CASCADE
+	)
+	DEFAULT CHARSET=utf8;
+	
+CREATE TABLE IF NOT EXISTS product_versions (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	pid INT(11),
+	sku VARCHAR(255),
+	attribute_slug VARCHAR(50),
+	value VARCHAR(50),
+	image VARCHAR(255),
+	price DECIMAL(11,2),
+	quantity_in_stock INT(6) DEFAULT 0,	
+	supplier_sku VARCHAR(255),
+	CONSTRAINT FOREIGN KEY(pid) REFERENCES products(pid) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY(image) REFERENCES product_images(file_name) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY(attribute_slug) REFERENCES product_attributes(slug) ON UPDATE RESTRICT ON DELETE RESTRICT,
+	PRIMARY KEY(id),
+	UNIQUE(sku),
+	UNIQUE(pid, attribute_slug, value)
+	)
+	DEFAULT CHARSET=utf8;	
+
+
+CREATE TABLE IF NOT EXISTS product_to_attribute (
+	pid INT(11),
+	attribute_slug VARCHAR(50),
+	value VARCHAR(50),
+	CONSTRAINT FOREIGN KEY(pid) REFERENCES products(pid) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY(attribute_slug) REFERENCES product_attributes(slug) ON UPDATE RESTRICT ON DELETE RESTRICT
+	)
+	DEFAULT CHARSET=utf8;
+  
+  
+CREATE TABLE IF NOT EXISTS categories (
+	slug VARCHAR(50) NOT NULL,
+    	parent_slug VARCHAR(50),
+	name VARCHAR(50) NOT NULL,
+	seo_title VARCHAR(255),
+	description VARCHAR(500),
+	long_description VARCHAR(5000),
+	image VARCHAR(255),
+	canonical_url VARCHAR(255),
+	breadcrumb_json VARCHAR(1000),
+	PRIMARY KEY(slug),
+	UNIQUE(name),
+	UNIQUE(slug),
+	CONSTRAINT FOREIGN KEY (parent_slug) REFERENCES categories(slug) ON UPDATE RESTRICT ON DELETE RESTRICT
+	)
+	DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS tags (
+	slug VARCHAR(50) NOT NULL,
+	name VARCHAR(50),
+	canonical TINYINT(1) DEFAULT 1,
+	filter TINYINT(1) DEFAULT 1,
+	seo_title VARCHAR(255),
+	description VARCHAR(500),
+	long_description VARCHAR(5000),
+	image VARCHAR(255),
+	PRIMARY KEY(slug),
+	UNIQUE(name)
+	)
+	DEFAULT CHARSET=utf8;
+	
+CREATE TABLE IF NOT EXISTS bundles (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	name VARCHAR(255),
+	slug VARCHAR(50) NOT NULL,
+	seo_title VARCHAR(255),
+	canonical_url VARCHAR(255),
+	description VARCHAR(500),
+	price DECIMAL(11,2),
+	PRIMARY KEY (id),
+	UNIQUE (name),
+	UNIQUE (slug)
+	)
+	DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS product_offers (
+	pid INT(11) NOT NULL,
+	type VARCHAR(25),
+	value DECIMAL(12,2),
+	valid_from DATETIME,
+	valid_to DATETIME,
+	CONSTRAINT FOREIGN KEY (pid) REFERENCES products(pid) ON DELETE CASCADE ON UPDATE CASCADE,
+	UNIQUE(pid)
+	)
+	DEFAULT CHARSET=utf8;
+  
+CREATE TABLE IF NOT EXISTS product_to_category (
+	pid INT(11) NOT NULL,
+	category_slug VARCHAR(50) NOT NULL,
+	CONSTRAINT FOREIGN KEY (pid) REFERENCES products(pid) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY (category_slug) REFERENCES categories(slug) ON UPDATE CASCADE ON DELETE CASCADE,
+	UNIQUE(pid, category_slug)
+	)
+	DEFAULT CHARSET=utf8;
+	
+CREATE TABLE IF NOT EXISTS product_to_tag (
+	pid INT(11) NOT NULL,
+	tag_name VARCHAR(50) NOT NULL,
+	CONSTRAINT FOREIGN KEY (pid) REFERENCES products(pid) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY (tag_name) REFERENCES tags(name) ON UPDATE CASCADE ON DELETE CASCADE,
+	UNIQUE(pid, tag_name)
+	)
+	DEFAULT CHARSET=utf8;
+  
+CREATE TABLE IF NOT EXISTS bundle_to_product (
+	pid INT(11) NOT NULL,
+	bundle_id INT(11) NOT NULL,
+	CONSTRAINT FOREIGN KEY (bundle_id) REFERENCES bundles(id) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY (pid) REFERENCES products(pid) ON UPDATE CASCADE ON DELETE CASCADE
+	)
+	DEFAULT CHARSET=utf8;

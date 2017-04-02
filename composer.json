@@ -1,0 +1,16 @@
+{
+    "name": "phoesis/catalog",
+    "description": "catalog api",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Santeri",
+            "email": "santeri.salonen@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "CatalogService\\" : "lib"
+      } 
+    }
+}

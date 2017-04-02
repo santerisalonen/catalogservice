@@ -1,0 +1,5 @@
+﻿<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /catalogservice/api/
+RewriteRule .  index.php [NC,L]
+</IfModule>

@@ -1,0 +1,27 @@
+
+DESC: get individual product
+PATH: /product/{product_slug}
+
+DESC: get category including productList
+PATH: /category/{category_slug}
+PARAMS: filter={filter}
+
+DESC: get tag including productList
+PATH: /tag
+PARAMS: filter={filter}
+
+DESC: get brand including productList
+PATH: /brand
+PARAMS: filter={filter}
+
+DESC: get list of categories
+PATH: /list/category/{parent_slug}
+PARAMS: tag={tag}
+
+DESC: get list of tags
+PATH: /list/tag
+PARAMS: category_slug={category_slug}
+
+DESC: get list of brands
+PATH: /list/brand
+PARAMS: category_slug={category_slug}
