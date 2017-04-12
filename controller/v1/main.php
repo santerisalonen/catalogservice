@@ -13,13 +13,9 @@ switch($path_arr[1]) {
   case 'list':
     if( !isset($path_arr[2])) {
       throw new \Exception('Not found', 404);
-    }
-    
-    switch( $path_arr[2] ) {
-        
-        
+    }    
+    switch( $path_arr[2] ) {   
         case 'category':
-        
           $list = new ListCategory();
           
           $list->parent_slug = ( isset($path_arr[3]) ) ? $path_arr[3] : null;
@@ -50,8 +46,21 @@ switch($path_arr[1]) {
     }
     
     break;
+    
+  case 'category':
+
+    $cat = CatalogService\Factory::loadBySlug($path_arr[ count($path_arr) - 1], 'Category');
+   
+    
+    echo json_encode($cat);
+    
+    break;
   
   case 'product':
+  
+    $pro = CatalogService\Factory::loadBySlug($path_arr[2], 'Product');
+    
+    echo json_encode($pro);
     
     break;
   

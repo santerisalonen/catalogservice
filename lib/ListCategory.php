@@ -7,7 +7,49 @@ class ListCategory {
   
   public function select() { 
     return self::getCategoryChildren($this->parent_slug);    
+  
   }
+  
+  public static function getCategoryPath($slug) {
+    $steps = self::getCategoryPath_rec($slug);
+    $url = '';
+    for($i = 0;$i < count($steps); $i++){
+      $url .= '/' . $steps[$i]['slug'];
+      if( !$steps[$i]['base_url'] ) {
+        $steps[$i]['base_url'] = $url; 
+      }
+      $steps[$i] = array(
+        'name' => $steps[$i]['name'],
+        'url' => $steps[$i]['base_url']
+        );
+        
+    }
+    return $steps;
+  }
+  /*
+   * get path to category
+   *
+   * recursive function
+   *
+   * @return array (parent categories)
+  */
+  private static function getCategoryPath_rec($slug, array $parents = array()) {
+    if($parents == null) {
+      $parents = array();
+    }
+    $cat_curr = self::getAllCategories("WHERE slug = '" . $slug . "'");
+    
+    $parents[] = $cat_curr[0];
+    
+    if($cat_curr[0]['parent_slug']) {
+      $parents =  self::getCategoryPath_rec($cat_curr[0]['parent_slug'], $parents);	
+      return $parents;
+    }
+    else {
+      return array_reverse($parents);
+    }
+  }
+
  /*
    * get children of a category
    *
@@ -76,10 +118,10 @@ class ListCategory {
   private static function getAllCategories($filter = null) {
     $db = DB::getInstance();
     if($filter == null) {
-      $sql = 'SELECT parent_slug, slug, name, canonical_url FROM categories';
+      $sql = 'SELECT parent_slug, slug, name, base_url FROM categories';
     }
     else {
-      $sql = 'SELECT parent_slug, slug, name, canonical_url FROM categories ' .$filter;
+      $sql = 'SELECT parent_slug, slug, name, base_url FROM categories ' .$filter;
     }
     $query = $db->prepare($sql);
     $query->execute();

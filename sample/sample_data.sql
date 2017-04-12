@@ -29,31 +29,31 @@ INSERT IGNORE INTO categories
 	(parent_slug, slug, name, description) 
 VALUES 
 	( NULL,'elektroniikka','elektroniikka','dummy description of elektroniikka'),
-	( 'elektroniikka', 'tabletit','tabletit', 't‰nne asiaa tableteista'),
-	( 'tabletit', 'suojakotelot', 'suojakotelot', 't‰nne asiaa tablettien suojakoteloista'),
-	( 'elektroniikka', 'puhelimet', 'puhelimet', 't‰nne asiaa luureista'),
-	( 'puhelimet', 'alypuhelimet', 'alypuhelimet', 't‰nne asiaa ‰lypuhelimista'),
-	( NULL, 'urheilu', 'urheilu', 't‰‰ll‰ urheilukauppa on'),
-	( 'urheilu', 'juoksu', 'juoksu', 'juoksu tuotteita on t‰ll‰'),
-	( 'juoksu', 'juoksukengat', 'juoksukeng‰t', 'yleistietoa juoksukengist‰ t‰nne n‰in'),
-	('urheilu','uinti','uinti','t‰nne uinnista stuffia'),
+	( 'elektroniikka', 'tabletit','tabletit', 't√§nne asiaa tableteista'),
+	( 'tabletit', 'suojakotelot', 'suojakotelot', 't√§nne asiaa tablettien suojakoteloista'),
+	( 'elektroniikka', 'puhelimet', 'puhelimet', 't√§nne asiaa luureista'),
+	( 'puhelimet', 'alypuhelimet', 'alypuhelimet', 't√§nne asiaa √§lypuhelimista'),
+	( NULL, 'urheilu', 'urheilu', 't√§√§ll√§ urheilukauppa on'),
+	( 'urheilu', 'juoksu', 'juoksu', 'juoksu tuotteita on t√§ll√§'),
+	( 'juoksu', 'juoksukengat', 'juoksukeng√§t', 'yleistietoa juoksukengist√§ t√§nne n√§in'),
+	('urheilu','uinti','uinti','t√§nne uinnista stuffia'),
 	('urheilu','jalkapallo','jalkapallo','ronaldo tekee scorea'),
 	( NULL, 'kirjat', 'kirjat', 'kirjakaupan description'),
-	( 'kirjat', 'tietokirjat', 'tietokirjat', 't‰nne kaikkea sivist‰v‰‰ tulee'),
+	( 'kirjat', 'tietokirjat', 'tietokirjat', 't√§nne kaikkea sivist√§v√§√§ tulee'),
 	( 'tietokirjat', 'historia', 'historia', 'historia-aiheisia tietokirjoja'),
 	( 'tietokirjat', 'politiikka', 'politiikka', 'politiikka-aiheisia tietokirjoja');
   
 INSERT IGNORE INTO product_attributes 
 	(slug, name, type, unit, filter, canonical, direction)
 VALUES
-	('color', 'v‰ri', 'color', NULL, 1, 0, NULL),
+	('color', 'v√§ri', 'color', NULL, 1, 0, NULL),
 	('disk_space_gb', 'tallennustila', 'scalar', 'Gt', 1, 1, 'increase'),
-	('screen_size_inches', 'n‰ytˆn koko', 'scalar', 'tuumaa', 1, 0, 'both'),
-	('screen_resolution', 'n‰ytˆn resoluutio', 'string', NULL, 1, 0, NULL),
-	('camera_mpix', 'kameran resoluutio', 'scalar', 'megapikseli‰', 1, 0, 'increase'),
+	('screen_size_inches', 'n√§yt√∂n koko', 'scalar', 'tuumaa', 1, 0, 'both'),
+	('screen_resolution', 'n√§yt√∂n resoluutio', 'string', NULL, 1, 0, NULL),
+	('camera_mpix', 'kameran resoluutio', 'scalar', 'megapikseli√§', 1, 0, 'increase'),
 	('warranty_months', 'takuu', 'scalar', 'kuukautta', 1, 0, 'increase'),
 	('battery_hours', 'Akun kesto', 'scalar', 'tuntia', 1, 0, 'increase'),
-	('operating_system', 'k‰yttˆj‰rjestelm‰', 'string', NULL, 1, 0, NULL),
+	('operating_system', 'k√§ytt√∂j√§rjestelm√§', 'string', NULL, 1, 0, NULL),
 	('weight_grams', 'paino', 'scalar', 'grammaa', 1, 0, 'decrease'),
 	('size', 'koko', 'string', NULL, 1, 1, NULL),
 	('gender', 'sukupuoli', 'string', NULL, 1, 1, NULL);
@@ -63,14 +63,14 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(1, 'apple-ipad-air-2-16gt-wifi', 'Apple iPad Air 2 16 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 399.99, 'Vain 6,1-millimetrisen‰ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja myˆs kaikkein kyvykk‰in. Siin‰ on uudistettu 9,7 tuuman Retina-n‰yttˆ, mullistava Touch ID -sormenj‰lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist‰ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k‰yttˆaikaa. Sen mukana tulee myˆs mainioita ohjelmia luovaan ja tuottavaan tyˆhˆn. Ja App Storesta lˆytyy paljon lis‰‰ ohjelmia.');
+	(1, 'apple-ipad-air-2-16gt-wifi', 'Apple iPad Air 2 16 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 399.99, 'Vain 6,1-millimetrisen√§ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja my√∂s kaikkein kyvykk√§in. Siin√§ on uudistettu 9,7 tuuman Retina-n√§ytt√∂, mullistava Touch ID -sormenj√§lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist√§ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k√§ytt√∂aikaa. Sen mukana tulee my√∂s mainioita ohjelmia luovaan ja tuottavaan ty√∂h√∂n. Ja App Storesta l√∂ytyy paljon lis√§√§ ohjelmia.');
 	
 INSERT IGNORE INTO product_images 
 	(file_name, alt_text)
 VALUES
 	('ipad-air-2-white1.jpg', 'iPad Air 2 hopea'),
 	('ipad-air-2-white2.jpg', 'iPad Air 2 hopea'),
-	('ipad-air-2-all.jpg', 'iPad Air 2 kaikki v‰rit'),
+	('ipad-air-2-all.jpg', 'iPad Air 2 kaikki v√§rit'),
 	('apple-ipad-air-2-dark1.jpg', 'iPad Air 2 harmaa'),
 	('apple-ipad-air-2-gold.jpg', 'iPad Air 2 kulta');
 
@@ -111,7 +111,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(2, 'apple-ipad-air-2-32gt-wifi', 'Apple iPad Air 2 32 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 499.99, 'Vain 6,1-millimetrisen‰ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja myˆs kaikkein kyvykk‰in. Siin‰ on uudistettu 9,7 tuuman Retina-n‰yttˆ, mullistava Touch ID -sormenj‰lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist‰ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k‰yttˆaikaa. Sen mukana tulee myˆs mainioita ohjelmia luovaan ja tuottavaan tyˆhˆn. Ja App Storesta lˆytyy paljon lis‰‰ ohjelmia.');
+	(2, 'apple-ipad-air-2-32gt-wifi', 'Apple iPad Air 2 32 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 499.99, 'Vain 6,1-millimetrisen√§ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja my√∂s kaikkein kyvykk√§in. Siin√§ on uudistettu 9,7 tuuman Retina-n√§ytt√∂, mullistava Touch ID -sormenj√§lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist√§ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k√§ytt√∂aikaa. Sen mukana tulee my√∂s mainioita ohjelmia luovaan ja tuottavaan ty√∂h√∂n. Ja App Storesta l√∂ytyy paljon lis√§√§ ohjelmia.');
 	
 INSERT IGNORE INTO product_to_images 
 	(pid, file_name)
@@ -150,7 +150,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(3, 'apple-ipad-air-2-64gt-wifi', 'Apple iPad Air 2 64 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 599.99, 'Vain 6,1-millimetrisen‰ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja myˆs kaikkein kyvykk‰in. Siin‰ on uudistettu 9,7 tuuman Retina-n‰yttˆ, mullistava Touch ID -sormenj‰lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist‰ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k‰yttˆaikaa. Sen mukana tulee myˆs mainioita ohjelmia luovaan ja tuottavaan tyˆhˆn. Ja App Storesta lˆytyy paljon lis‰‰ ohjelmia.');
+	(3, 'apple-ipad-air-2-64gt-wifi', 'Apple iPad Air 2 64 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 599.99, 'Vain 6,1-millimetrisen√§ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja my√∂s kaikkein kyvykk√§in. Siin√§ on uudistettu 9,7 tuuman Retina-n√§ytt√∂, mullistava Touch ID -sormenj√§lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist√§ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k√§ytt√∂aikaa. Sen mukana tulee my√∂s mainioita ohjelmia luovaan ja tuottavaan ty√∂h√∂n. Ja App Storesta l√∂ytyy paljon lis√§√§ ohjelmia.');
 	
 INSERT IGNORE INTO product_to_images 
 	(pid, file_name)
@@ -189,7 +189,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(4, 'apple-ipad-air-2-128gt-wifi', 'Apple iPad Air 2 128 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 699.99, 'Vain 6,1-millimetrisen‰ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja myˆs kaikkein kyvykk‰in. Siin‰ on uudistettu 9,7 tuuman Retina-n‰yttˆ, mullistava Touch ID -sormenj‰lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist‰ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k‰yttˆaikaa. Sen mukana tulee myˆs mainioita ohjelmia luovaan ja tuottavaan tyˆhˆn. Ja App Storesta lˆytyy paljon lis‰‰ ohjelmia.');
+	(4, 'apple-ipad-air-2-128gt-wifi', 'Apple iPad Air 2 128 Gt Wi-Fi tabletti', 'multi', 'Apple', 5, 699.99, 'Vain 6,1-millimetrisen√§ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja my√∂s kaikkein kyvykk√§in. Siin√§ on uudistettu 9,7 tuuman Retina-n√§ytt√∂, mullistava Touch ID -sormenj√§lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist√§ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k√§ytt√∂aikaa. Sen mukana tulee my√∂s mainioita ohjelmia luovaan ja tuottavaan ty√∂h√∂n. Ja App Storesta l√∂ytyy paljon lis√§√§ ohjelmia.');
 	
 INSERT IGNORE INTO product_to_images 
 	(pid, file_name)
@@ -229,7 +229,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(5, 'apple-ipad-air-2-16gt-wifi-cellular', 'Apple iPad Air 2 16 Gt Wi-Fi + Cellular tabletti', 'multi', 'Apple', 5, 607.99, 'Vain 6,1-millimetrisen‰ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja myˆs kaikkein kyvykk‰in. Siin‰ on uudistettu 9,7 tuuman Retina-n‰yttˆ, mullistava Touch ID -sormenj‰lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist‰ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k‰yttˆaikaa. Sen mukana tulee myˆs mainioita ohjelmia luovaan ja tuottavaan tyˆhˆn. Ja App Storesta lˆytyy paljon lis‰‰ ohjelmia.');
+	(5, 'apple-ipad-air-2-16gt-wifi-cellular', 'Apple iPad Air 2 16 Gt Wi-Fi + Cellular tabletti', 'multi', 'Apple', 5, 607.99, 'Vain 6,1-millimetrisen√§ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja my√∂s kaikkein kyvykk√§in. Siin√§ on uudistettu 9,7 tuuman Retina-n√§ytt√∂, mullistava Touch ID -sormenj√§lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist√§ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k√§ytt√∂aikaa. Sen mukana tulee my√∂s mainioita ohjelmia luovaan ja tuottavaan ty√∂h√∂n. Ja App Storesta l√∂ytyy paljon lis√§√§ ohjelmia.');
 	
 INSERT IGNORE INTO product_to_images 
 	(pid, file_name)
@@ -268,7 +268,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(6, 'apple-ipad-air-2-64gt-wifi-cellular', 'Apple iPad Air 2 64 Gt Wi-Fi + Cellular tabletti', 'multi', 'Apple', 5, 727.99, 'Vain 6,1-millimetrisen‰ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja myˆs kaikkein kyvykk‰in. Siin‰ on uudistettu 9,7 tuuman Retina-n‰yttˆ, mullistava Touch ID -sormenj‰lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist‰ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k‰yttˆaikaa. Sen mukana tulee myˆs mainioita ohjelmia luovaan ja tuottavaan tyˆhˆn. Ja App Storesta lˆytyy paljon lis‰‰ ohjelmia.');
+	(6, 'apple-ipad-air-2-64gt-wifi-cellular', 'Apple iPad Air 2 64 Gt Wi-Fi + Cellular tabletti', 'multi', 'Apple', 5, 727.99, 'Vain 6,1-millimetrisen√§ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja my√∂s kaikkein kyvykk√§in. Siin√§ on uudistettu 9,7 tuuman Retina-n√§ytt√∂, mullistava Touch ID -sormenj√§lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist√§ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k√§ytt√∂aikaa. Sen mukana tulee my√∂s mainioita ohjelmia luovaan ja tuottavaan ty√∂h√∂n. Ja App Storesta l√∂ytyy paljon lis√§√§ ohjelmia.');
 	
 INSERT IGNORE INTO product_to_images 
 	(pid, file_name)
@@ -307,7 +307,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(7, 'apple-ipad-air-2-128gt-wifi-cellular', 'Apple iPad Air 2 128 Gt Wi-Fi + Cellular tabletti', 'multi', 'Apple', 5, 804.99, 'Vain 6,1-millimetrisen‰ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja myˆs kaikkein kyvykk‰in. Siin‰ on uudistettu 9,7 tuuman Retina-n‰yttˆ, mullistava Touch ID -sormenj‰lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist‰ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k‰yttˆaikaa. Sen mukana tulee myˆs mainioita ohjelmia luovaan ja tuottavaan tyˆhˆn. Ja App Storesta lˆytyy paljon lis‰‰ ohjelmia.');
+	(7, 'apple-ipad-air-2-128gt-wifi-cellular', 'Apple iPad Air 2 128 Gt Wi-Fi + Cellular tabletti', 'multi', 'Apple', 5, 804.99, 'Vain 6,1-millimetrisen√§ Apple iPad Air 2 on kaikkien aikojen ohuin iPad. Ja my√∂s kaikkein kyvykk√§in. Siin√§ on uudistettu 9,7 tuuman Retina-n√§ytt√∂, mullistava Touch ID -sormenj√§lkitunnistin, tehokas 64-bittinen A8X-siru, uusi iSight-kamera, parannettu FaceTime HD -kamera, entist√§ nopeammat langattomat yhteydet, iOS 8, iCloud ja jopa 10 tuntia akun k√§ytt√∂aikaa. Sen mukana tulee my√∂s mainioita ohjelmia luovaan ja tuottavaan ty√∂h√∂n. Ja App Storesta l√∂ytyy paljon lis√§√§ ohjelmia.');
 	
 INSERT IGNORE INTO product_to_images 
 	(pid, file_name)
@@ -347,7 +347,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(8, 'apple-ipad-air-2-smart-case', 'Apple iPad Air 2 Smart Case kotelo', 'multi', 'Apple', 34, 79.99, 'Apple iPad Air 2 Smart Case tarjoaa tyylikk‰‰n, aniliiniv‰rj‰tyn nahkakotelon iPad Airillesi ja suojaa n‰ytˆn lis‰ksi myˆs takaosaa. Silti siin‰kin on iPad Airin ohut ja kevyt design. Se taittuu helposti jalustaksi lukemista, kirjoittamista ja videoiden katselua varten. Lis‰ksi se her‰tt‰‰ iPad Airin ja laittaa sen nukkumaan automaattisesti avattaessa ja suljettaessa.');
+	(8, 'apple-ipad-air-2-smart-case', 'Apple iPad Air 2 Smart Case kotelo', 'multi', 'Apple', 34, 79.99, 'Apple iPad Air 2 Smart Case tarjoaa tyylikk√§√§n, aniliiniv√§rj√§tyn nahkakotelon iPad Airillesi ja suojaa n√§yt√∂n lis√§ksi my√∂s takaosaa. Silti siin√§kin on iPad Airin ohut ja kevyt design. Se taittuu helposti jalustaksi lukemista, kirjoittamista ja videoiden katselua varten. Lis√§ksi se her√§tt√§√§ iPad Airin ja laittaa sen nukkumaan automaattisesti avattaessa ja suljettaessa.');
 	
 INSERT IGNORE INTO product_images 
 	(file_name, alt_text)
@@ -380,7 +380,7 @@ VALUES
 INSERT IGNORE INTO bundles 
 	(id, name, slug, description, price)
 VALUES
-	(1, 'Apple iPad Air 2 64 Gt Wi-Fi + Cellular tabletti ja suojakotelo', 'ipad2-air-suojakotelo', 'Ipad Air 2 sek‰ suojakotelo nyt yhdess‰ erikoishintaan', 777.99 );
+	(1, 'Apple iPad Air 2 64 Gt Wi-Fi + Cellular tabletti ja suojakotelo', 'ipad2-air-suojakotelo', 'Ipad Air 2 sek√§ suojakotelo nyt yhdess√§ erikoishintaan', 777.99 );
 
 INSERT IGNORE INTO bundle_to_product
 	(pid, bundle_id)
@@ -394,7 +394,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(9, 'lg-g3-android-32gt-kulta', 'LG G3 Android puhelin 32 Gt, kulta', 'single', 'LG', 12, 389.99, 'Markkinoiden paras n‰yttˆ on kooltaan 5,5 tuumaa, ja Quad HD -tarkkuus (2560x1440) tarjoaa 75 prosenttia enemm‰n pikseleit‰ kuin Full HD -n‰yttˆ. Per‰ti 538 pikseli‰ tuumalla tekee kuvasta todella yksityiskohtaisen ja ter‰v‰mm‰n, kuin milt‰ se n‰ytt‰‰ painetussa lehdess‰. LG:n IPS-tekniikka mahdollistaa myˆs laajemman katselukulman ja luonnollisemmat v‰rit. T‰m‰ n‰yttˆ erottuu edukseen kaikesta, mit‰ olet ennen n‰hnyt.');
+	(9, 'lg-g3-android-32gt-kulta', 'LG G3 Android puhelin 32 Gt, kulta', 'single', 'LG', 12, 389.99, 'Markkinoiden paras n√§ytt√∂ on kooltaan 5,5 tuumaa, ja Quad HD -tarkkuus (2560x1440) tarjoaa 75 prosenttia enemm√§n pikseleit√§ kuin Full HD -n√§ytt√∂. Per√§ti 538 pikseli√§ tuumalla tekee kuvasta todella yksityiskohtaisen ja ter√§v√§mm√§n, kuin milt√§ se n√§ytt√§√§ painetussa lehdess√§. LG:n IPS-tekniikka mahdollistaa my√∂s laajemman katselukulman ja luonnollisemmat v√§rit. T√§m√§ n√§ytt√∂ erottuu edukseen kaikesta, mit√§ olet ennen n√§hnyt.');
 	
 INSERT IGNORE INTO product_images 
 	(file_name, alt_text)
@@ -426,18 +426,18 @@ VALUES
 	(9, 'alypuhelimet');
 
 	
-/* 10. Caterpillar B15Q Dual-SIM Android ‰lypuhelin */
+/* 10. Caterpillar B15Q Dual-SIM Android √§lypuhelin */
 
 
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(10, 'caterpillar-b15q', 'Caterpillar B15Q Dual-SIM Android ‰lypuhelin, musta', 'single', 'Caterpillar', 12, 299.99, 'IP67-sertifioitu Android ‰lypuhelin joka kest‰‰ pudotuksen 1.8 metrist‰ ja upottamisen metrin syvyiseen veteen 30 minuutiksi. Ulkon‰kˆns‰ puolesta Caterpillar n‰ytt‰‰ j‰m‰k‰lt‰ ja tyˆkalumaiselta joka luo selke‰n mielikuvan mist‰ puhelimessa on kyse. Ominaisuuksiltaan puhelin edustaa kuitenkin monipuolista ‰lypuhelinta.');
+	(10, 'caterpillar-b15q', 'Caterpillar B15Q Dual-SIM Android √§lypuhelin, musta', 'single', 'Caterpillar', 12, 299.99, 'IP67-sertifioitu Android √§lypuhelin joka kest√§√§ pudotuksen 1.8 metrist√§ ja upottamisen metrin syvyiseen veteen 30 minuutiksi. Ulkon√§k√∂ns√§ puolesta Caterpillar n√§ytt√§√§ j√§m√§k√§lt√§ ja ty√∂kalumaiselta joka luo selke√§n mielikuvan mist√§ puhelimessa on kyse. Ominaisuuksiltaan puhelin edustaa kuitenkin monipuolista √§lypuhelinta.');
 	
 INSERT IGNORE INTO product_images 
 	(file_name, alt_text)
 VALUES
-	('caterpillar-dualsim.jpg', 'Caterpillar B15Q Dual-SIM Android ‰lypuhelin');
+	('caterpillar-dualsim.jpg', 'Caterpillar B15Q Dual-SIM Android √§lypuhelin');
 	
 INSERT IGNORE INTO product_to_images 
 	(pid, file_name)
@@ -468,7 +468,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(11, 'microsoft-surface-pro-3-128gt', 'Microsoft Surface Pro 3 tablet, 128 Gt, Win 10 Pro', 'single', 'Microsoft', 12, 978.99, 'Uusi 12-tuumainen Surface Pro 3 painaa vaivaiset 798 grammaa, mutta vaikka se onkin ohut ja kevyt, se on silti yht‰ tehokas ja suorituskykyinen kuin laadukas kannettava. Laitteen mukana toimitetaan aivan uusi Surface-kyn‰, jolla kirjoitat ja piirr‰t kuin oikealla kyn‰ll‰.');
+	(11, 'microsoft-surface-pro-3-128gt', 'Microsoft Surface Pro 3 tablet, 128 Gt, Win 10 Pro', 'single', 'Microsoft', 12, 978.99, 'Uusi 12-tuumainen Surface Pro 3 painaa vaivaiset 798 grammaa, mutta vaikka se onkin ohut ja kevyt, se on silti yht√§ tehokas ja suorituskykyinen kuin laadukas kannettava. Laitteen mukana toimitetaan aivan uusi Surface-kyn√§, jolla kirjoitat ja piirr√§t kuin oikealla kyn√§ll√§.');
 	
 INSERT IGNORE INTO product_images 
 	(file_name, alt_text)
@@ -507,7 +507,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(12, 'acer-ionia', 'Acer Iconia W1-810 8" 32 GB Wi-Fi tabletti, Win 8.1', 'single', 'Acer', 12, 119.99, 'Acer Iconia W1. Kevyt, ohut ja nopea Windows-tabletti tyˆhˆn ja huviin. 8" IPS-n‰yttˆ tarjoaa rikkaat ja el‰v‰iset v‰rit, laajat katselukulmat sek‰ mainion k‰ytett‰vyyden myˆs kirkkaassa p‰iv‰nvalossa. Nelj‰nnen sukupolven Intel Atom Z3735G "Bay Trail" -neliydinsuoritin takaa jouhevan toiminnan ja tehokkasta akusta riitt‰‰ virtaa jopa kahdeksaksi tunniksi. Laadukkaat stereokaiuttimet tuottavat t‰ytel‰isen ‰‰nen ja easy grip -pinnoite takakannessa takaa pit‰v‰n otteen laitteesta.');
+	(12, 'acer-ionia', 'Acer Iconia W1-810 8" 32 GB Wi-Fi tabletti, Win 8.1', 'single', 'Acer', 12, 119.99, 'Acer Iconia W1. Kevyt, ohut ja nopea Windows-tabletti ty√∂h√∂n ja huviin. 8" IPS-n√§ytt√∂ tarjoaa rikkaat ja el√§v√§iset v√§rit, laajat katselukulmat sek√§ mainion k√§ytett√§vyyden my√∂s kirkkaassa p√§iv√§nvalossa. Nelj√§nnen sukupolven Intel Atom Z3735G "Bay Trail" -neliydinsuoritin takaa jouhevan toiminnan ja tehokkasta akusta riitt√§√§ virtaa jopa kahdeksaksi tunniksi. Laadukkaat stereokaiuttimet tuottavat t√§ytel√§isen √§√§nen ja easy grip -pinnoite takakannessa takaa pit√§v√§n otteen laitteesta.');
 	
 INSERT IGNORE INTO product_images 
 	(file_name, alt_text)
@@ -546,7 +546,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(13, 'saucony-ride', 'SAUCONY RIDE 7 RUNNING SHOES', 'multi', 'Saucony', 12, 69.99, 'Run responsively with the latest, greatest edition of Sauconyís flagship neutral lightweight trainer. The latest edition of the Ride is synonymous with another four-letter word: F-A-S-T. Heel-to-toe Powergrid offers 15% less weight and 30% more durable cushioning than standard EVA for even smoother transitions with less weight, and the forefoot has been redesigned with vertical flex grooves for a more flexible foot motion and ground contact. iBR+ now extends further under the midfoot to enhance responsiveness and provide 3 times more cushioning than standard blown rubber. Ride enthusiasts will enjoy the 7th editionís versatility, comfort and durability when running those long distances.');
+	(13, 'saucony-ride', 'SAUCONY RIDE 7 RUNNING SHOES', 'multi', 'Saucony', 12, 69.99, 'Run responsively with the latest, greatest edition of Saucony‚Äôs flagship neutral lightweight trainer. The latest edition of the Ride is synonymous with another four-letter word: F-A-S-T. Heel-to-toe Powergrid offers 15% less weight and 30% more durable cushioning than standard EVA for even smoother transitions with less weight, and the forefoot has been redesigned with vertical flex grooves for a more flexible foot motion and ground contact. iBR+ now extends further under the midfoot to enhance responsiveness and provide 3 times more cushioning than standard blown rubber. Ride enthusiasts will enjoy the 7th edition‚Äôs versatility, comfort and durability when running those long distances.');
 	
 INSERT IGNORE INTO product_images 
 	(file_name, alt_text)
@@ -592,7 +592,7 @@ VALUES
 INSERT IGNORE INTO products 
 	(pid, slug, name, type, brand, price, quantity_in_stock, description)
 VALUES	
-	(14, 'asics-gel', 'ASICS GEL-CUMULUS 17 WOMENS RUNNING SHOES - AW15', 'multi', 'Asics', 12, 112.99, 'The award-winning GEL-CumulusÆ series just keeps getting better, A continuous sought after running shoe from Asics. The Nimbus continues into its 17th Edition bringing you a fluid ride midsole and a guidence and cushioning system plus many more.');
+	(14, 'asics-gel', 'ASICS GEL-CUMULUS 17 WOMENS RUNNING SHOES - AW15', 'multi', 'Asics', 12, 112.99, 'The award-winning GEL-Cumulus¬Æ series just keeps getting better, A continuous sought after running shoe from Asics. The Nimbus continues into its 17th Edition bringing you a fluid ride midsole and a guidence and cushioning system plus many more.');
 	
 	
 INSERT IGNORE INTO product_images 
@@ -654,7 +654,7 @@ VALUES
 INSERT IGNORE INTO product_to_attribute
 	(pid, attribute_slug, value)
 VALUES
-	(15, 'color', 'vihre‰'),
+	(15, 'color', 'vihre√§'),
 	(15, 'gender', 'naisten'),
 	(15, 'gender', 'miesten');
 	

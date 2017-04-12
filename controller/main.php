@@ -4,7 +4,7 @@ use CatalogService\Config;
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 
 // remove app folder and version id from path
 $rm_path = strtolower( Config::$domain_path );

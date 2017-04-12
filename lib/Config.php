@@ -6,6 +6,7 @@ class Config {
   public static $debug;
   public static $domain_path;
   public static $memory_limit_mb;
+  public static $flat_file_cache;
   public static $rds = array();
   
   public static function init($json_path) {
